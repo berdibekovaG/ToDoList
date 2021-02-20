@@ -1,4 +1,4 @@
-package com.example.todolist
+package com.example.todolist.ui.addTask
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,13 +6,14 @@ import android.text.TextUtils
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.example.todolist.R
 import com.example.todolist.dataRoom.TaskViewModel
-import com.example.todolist.model.Task
-import com.example.todolist.MainActivity.presentation.MainActivity
-import kotlin.random.Random
+import com.example.todolist.data.Task
+import com.example.todolist.ui.taskMainMenu.MainActivity
 
 
 class AddTaskActivity : AppCompatActivity() {
@@ -25,11 +26,18 @@ class AddTaskActivity : AppCompatActivity() {
         mtaskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
         val textField = findViewById<EditText>(R.id.set_text)
         textField.setText((intent.getSerializableExtra("selected_task") as? Task)?.taskDescription ?: "")
-
         val button: Button = findViewById(R.id.btn_save_task)
         button.setOnClickListener {
             insertDataToDataBase()
         }
+
+        val buttonBack: ImageView = findViewById(R.id.ic_back)
+        buttonBack.setOnClickListener{
+            intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+
+
 
     }
 

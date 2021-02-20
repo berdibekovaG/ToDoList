@@ -1,6 +1,7 @@
 package com.example.todolist.model
 
 import androidx.lifecycle.LiveData
+import com.example.todolist.data.Task
 import com.example.todolist.dataRoom.TaskDao
 
 class TaskRepository(

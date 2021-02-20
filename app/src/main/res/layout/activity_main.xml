@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+        <variable
+            name = "taskViewModel"
+            type = "com.example.todolist.dataRoom.TaskViewModel"/>
+</data>
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/layout_task_list"
-    tools:context=".MainActivity.presentation.MainActivity">
+    tools:context=".ui.taskMainMenu.MainActivity">
 
     <FrameLayout
         android:id="@+id/toolbar_layout"
@@ -66,3 +74,4 @@
 
 
 </RelativeLayout>
+</layout>

@@ -1,4 +1,4 @@
-package com.example.todolist.model
+package com.example.todolist.data
 
 
 import android.os.Parcelable

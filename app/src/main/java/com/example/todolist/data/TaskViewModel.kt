@@ -4,7 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.todolist.model.Task
+import com.example.todolist.data.Task
+
 import com.example.todolist.model.TaskRepository
 
 import kotlinx.coroutines.Dispatchers
