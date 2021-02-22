@@ -1,4 +1,4 @@
-package com.example.todolist.ui.addTask
+package com.example.todolist.presentation
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,9 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.todolist.R
-import com.example.todolist.dataRoom.TaskViewModel
-import com.example.todolist.data.Task
-import com.example.todolist.ui.taskMainMenu.MainActivity
+import com.example.todolist.data.model.Task
 
 
 class AddTaskActivity : AppCompatActivity() {
@@ -25,7 +23,7 @@ class AddTaskActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add)
         mtaskViewModel = ViewModelProvider(this).get(TaskViewModel::class.java)
         val textField = findViewById<EditText>(R.id.set_text)
-        textField.setText((intent.getSerializableExtra("selected_task") as? Task)?.taskDescription ?: "")
+        textField.setText((intent.getSerializableExtra(SELECTED_TASK) as? Task)?.taskDescription ?: "")
         val button: Button = findViewById(R.id.btn_save_task)
         button.setOnClickListener {
             insertDataToDataBase()
@@ -46,7 +44,7 @@ class AddTaskActivity : AppCompatActivity() {
 
         if (inputCheck(addedTask)) {
             Log.v("task", intent.getSerializableExtra("selected_task").toString())
-            val task = intent.getSerializableExtra("selected_task") as? Task ?: Task(0, addedTask)
+            val task = intent.getSerializableExtra(SELECTED_TASK) as? Task ?: Task(0, addedTask)
             task.taskDescription = addedTask
             Log.v("task", task.toString())
             mtaskViewModel.addTask(task as Task)

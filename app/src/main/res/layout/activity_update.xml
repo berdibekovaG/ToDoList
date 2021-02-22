@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.addTask.UpdateTaskActivity"
+    tools:context=".presentation.UpdateTaskActivity"
     android:orientation="vertical"
     android:id="@+id/activity_update_layout">
 
