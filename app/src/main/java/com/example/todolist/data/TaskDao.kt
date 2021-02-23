@@ -1,23 +1,23 @@
-package com.example.todolist.dataRoom
+package com.example.todolist.data
 
-import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.todolist.data.Task
+import com.example.todolist.data.model.Task
 
 @Dao
 interface TaskDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-   suspend fun addTask(task: Task)
+    fun addTask(task: Task)
 
     @Query("SELECT * FROM task_table ORDER BY id ASC")
-    fun getTaskList(): LiveData<List<Task>>
+    fun getTaskList(): List<Task>
 
-    @Query ("SELECT * FROM task_table WHERE id = :taskId")
-    suspend fun getTaskById(taskId: Int) : Task
+    @Query("SELECT * FROM task_table WHERE id = :taskId")
+    fun getTaskById(taskId: Int): Task
 
     @Delete
-    suspend fun deleteTask(task: Task)
+    fun deleteTask(task: Task)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun updateNote(task: Task) : Long
+    fun updateNote(task: Task): Long
 }

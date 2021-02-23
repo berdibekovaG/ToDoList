@@ -5,7 +5,7 @@
 <data>
         <variable
             name = "taskViewModel"
-            type = "com.example.todolist.dataRoom.TaskViewModel"/>
+            type = "com.example.todolist.presentation.TaskViewModel"/>
 </data>
 
 <RelativeLayout
@@ -13,7 +13,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/layout_task_list"
-    tools:context=".ui.taskMainMenu.MainActivity">
+    tools:context=".presentation.MainActivity">
 
     <FrameLayout
         android:id="@+id/toolbar_layout"
